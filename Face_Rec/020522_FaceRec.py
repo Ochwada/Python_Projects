@@ -1,4 +1,4 @@
-from calendar import c
+#from calendar import c
 import imp
 
 
@@ -29,11 +29,14 @@ def  main():
         image_path = list_images[i]
 
         print(image_path)
+        
+        # load the pre-trained model
         case_path = "haarcascade_frontalface_default.xml" # define the model used for recognition detection
         faceCascade= cv2.CascadeClassifier(case_path)
-        image=c2.imread(image_path)
+        image=cv2.imread(image_path)
         gray = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY) # make the picture to gray from color
 
+        # face detection 
         faces = faceCascade.detectMultiScale(gray,
                                             scaleFactor = 1.1,
                                             minNeighbors=5,
@@ -41,7 +44,8 @@ def  main():
 
         for (x, y, w, h) in faces: # draw rectangles on the faces when detected
             cv2.rectangle(image, (x,y), (x + w, y+h), (0, 255, 0), 2)
-    
+            
+        #Load the detected faces
         cv2.imshow("Face Found", image)
         cv2.waitKey(4)
         time.sleep(5)
