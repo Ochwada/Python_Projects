@@ -48,7 +48,7 @@ def  main():
 
         #Load the detected faces
         cv2.imshow("Face Found", image)
-        cv2.waitKey(4)
+        cv2.waitKey(5)
         time.sleep(5)
         cv2.destroyAllWindows()
 
