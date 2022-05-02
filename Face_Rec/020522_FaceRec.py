@@ -3,6 +3,7 @@ import imp
 
 
 import cv2
+from matplotlib.cbook import ls_mapper
 import numpy as np
 import time
 import os
@@ -44,7 +45,7 @@ def  main():
 
         for (x, y, w, h) in faces: # draw rectangles on the faces when detected
             cv2.rectangle(image, (x,y), (x + w, y+h), (0, 255, 0), 2)
-            
+
         #Load the detected faces
         cv2.imshow("Face Found", image)
         cv2.waitKey(4)
